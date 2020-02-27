@@ -53,8 +53,8 @@ function mousePressed() {
   //text(dogs[randomIndex].name, 50, 50);
   //dogs.splice(randomIndex, 1);
 
-animating = true;
-setTimeout(randomizer, 2424);
+  animating = true;
+  setTimeout(randomizer, 2424);
 
 
 }
