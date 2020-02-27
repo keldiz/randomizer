@@ -47,8 +47,6 @@ function randomizer() {
 }
 
 
-}
-
 function mousePressed() {
   //background(random(200, 255));
   //randomIndex = int(random(dogs.length));
