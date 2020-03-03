@@ -15,14 +15,15 @@ function setup() {
 
 
 function draw() {
-  if (animating === false) {
+  if (animating === false && frameCount % 14 === 0) {
     col.r = random(100, 255);
     col.g = 0;
     col.b = random(100, 190);
     point.x = random(0, width);
     point.y = random(0, height);
-    fill(col.r, col.g, col.b, 11)
-    ellipse(random(width), random(height), random(84, 84));
+    fill(col.r, col.g, col.b, 25)
+    ellipse(random(width), random(height), random(64, 64));
+
   }
 
   {
