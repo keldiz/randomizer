@@ -53,6 +53,7 @@ function randomizer() {
 function mousePressed() {
   animating = false;
   randomizer();
+  setTimeout(randomizer, 20000);
 
 
 }
