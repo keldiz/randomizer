@@ -1,60 +1,57 @@
-let dogs = [{
-  name: "chase",
-  color: "dog treat color"
-}, {
-  name: "cyber",
-  color: "brown"
-}, {
-  name: "tony",
-  color: "black"
+let col = {
+  r: 255,
+  g: 0,
+  b: 0,
 
-}, {
-  name: "jm",
-  color: "white",
-}];
 
+}
 let randomIndex;
-let counter = 0;
-let animating = false;
+let animating = true;
 
 function setup() {
-  createCanvas(600, 600);
-  background(200);
-  text("click to randomize", 24, 8);
-  // setTimeout(changeBackground,1000);
-
+  createCanvas(400, 400);
+  background(147, 112, 219);
 }
+
 
 function draw() {
-  if (animating == true) {
+  if (animating === false) {
+    col.r = random(100, 255);
+    col.g = 0;
+    col.b = random(100, 190);
+    point.x = random(0, width);
+    point.y = random(0, height);
+    fill(col.r, col.g, col.b, 11)
+    ellipse(random(width), random(height), random(84, 84));
+  }
 
-    rect(random(width), random(height), random(24, 248));
+  {
+    let d = random(0, 255);
+    let e = random(0, 255);
+    let f = random(0, 255);
+    fill(d, e, f);
+    noStroke();
+    rect(mouseX, mouseY, -2, 70);
+    ellipse(mouseX, mouseY, 40, 7);
   }
 }
-// function changeBackground(){}
+
 
 function randomizer() {
   animating = false;
-  if (dogs[0]) {
-    background(random(200, 255));
-    randomIndex = int(random(dogs.length));
-    text(dogs[randomIndex].name + "'s favorite color is" + dogs[randomIndex].color, 24, 24);
-    dogs.splice(randomIndex, 1);
-  } else {
-    background(random(224, 248));
-    text("nothing is left!", 24, 24);
-  }
+  let a = random(150, 255);
+  let b = random(150, 255);
+  let c = random(150, 255);
+  background(a, b, c);
+  randomIndex = int(random(col.length));
+
 }
 
 
-function mousePressed() {
-  //background(random(200, 255));
-  //randomIndex = int(random(dogs.length));
-  //text(dogs[randomIndex].name, 50, 50);
-  //dogs.splice(randomIndex, 1);
 
-  animating = true;
-  setTimeout(randomizer, 2424);
+function mousePressed() {
+  animating = false;
+  randomizer();
 
 
 }
