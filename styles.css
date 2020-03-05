@@ -14,3 +14,13 @@ canvas {
 background-color:#28b08a;
 
 }
+
+.row{
+display: flex;
+}
+
+.column{
+margin: 10px;
+flex:50%;
+
+}

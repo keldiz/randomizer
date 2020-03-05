@@ -10,6 +10,7 @@ let animating = true;
 let kicks = [];
 let imageCounter = 0;
 let button;
+let cnv;
 
 
 function preload() {
@@ -25,7 +26,11 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(600, 600);
+  cnv = createCanvas(600, 600);
+cnv.parent("#canvasDiv");
+
+
+
   background(147, 112, 219);
   imageMode(CENTER);
   frameRate(100);
