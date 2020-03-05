@@ -88,7 +88,7 @@ function randomizer() {
     background(random(255), random(255), random(255));
     nostroke();
     fill('white');
-    text("nothing is left!", 170, 300);
+    text("Done!", 170, 300);
   }
 }
 
