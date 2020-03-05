@@ -1,12 +1,25 @@
-let col = {
-  r: 255,
-  g: 0,
-  b: 0,
+let dogs = [{
+  name: "dillion",
+  color: "red"
+}, {
+  name: "ziggy",
+  color: "blue"
+}, {
+  name: "mercedes",
+  color: "green"
+}, {
+  name: "jorge",
+  color: "yellow"
+}, {
+  name: "zay",
+  color: "black"
+}, {
+  name: "jay",
+  color: "white"
+}];
 
-
-}
 let randomIndex;
-let animating = true;
+let animating = false;
 let kicks = [];
 let imageCounter = 0;
 let button;
@@ -16,7 +29,7 @@ let cnv;
 function preload() {
 
   for (let i = 0; i <= 15; i++) {
-    kicks[i] = loadImage(`assets/kicks_${i}.JPG`)
+    kicks[i] = loadImage(`assets/kicks_${i}.jpg`)
 
 
   }
