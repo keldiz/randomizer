@@ -83,6 +83,7 @@ function randomizer() {
     image(random(kicks), width / 2, height / 2);
     dogs.splice(randomIndex, 1);
     noStroke();
+    textSize(24)
     text(dogs[randomIndex].name + "'s fave kicks " + dogs[randomIndex].color, width / 2, height / 2);
   } else {
     // background(random(255), random(255), random(255));
