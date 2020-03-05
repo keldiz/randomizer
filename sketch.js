@@ -1,25 +1,12 @@
-let dogs = [{
-  name: "dillion",
-  color: "red"
-}, {
-  name: "ziggy",
-  color: "blue"
-}, {
-  name: "mercedes",
-  color: "green"
-}, {
-  name: "jorge",
-  color: "yellow"
-}, {
-  name: "zay",
-  color: "black"
-}, {
-  name: "jay",
-  color: "white"
-}];
+let col = {
+  r: 255,
+  g: 0,
+  b: 0,
 
+
+}
 let randomIndex;
-let animating = false;
+let animating = true;
 let kicks = [];
 let imageCounter = 0;
 let button;
