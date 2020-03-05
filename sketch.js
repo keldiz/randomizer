@@ -1,12 +1,26 @@
-let col = {
-  r: 255,
-  g: 0,
-  b: 0,
+let dogs = [{
+  name: "dillion",
+  color: "red"
+}, {
+  name: "ziggy",
+  color: "blue"
+}, {
+  name: "mercedes",
+  color: "green"
+}, {
+  name: "jorge",
+  color: "yellow"
+}, {
+  name: "zay",
+  color: "black"
+}, {
+  name: "jay",
+  color: "white"
+}];
 
 
-}
 let randomIndex;
-let animating = true;
+let animating = false;
 let kicks = [];
 let imageCounter = 0;
 let button;
@@ -14,91 +28,76 @@ let cnv;
 
 
 function preload() {
-
-  for (let i = 0; i <= 15; i++) {
+  for (let i = 0; i <= 15; i++){
     kicks[i] = loadImage(`assets/kicks_${i}.jpg`)
-
-
   }
-
-
-
 }
 
 function setup() {
   cnv = createCanvas(600, 600);
-cnv.parent("#canvasDiv");
+  cnv.parent("#canvasDiv");
 
 
 
-  background(147, 112, 219);
+  background(random(255), random(255), random(255), );
+  textSize(35);
+  text("CLICK TO RANDOMIZE", 100, 300);
   imageMode(CENTER);
   frameRate(100);
-// button = createButton("click to randomize");
-button = select('#randButton');
-button.mousePressed(buttonPressed);
-button.class("randomizerButton");
+  // button = createButton("click to randomize");
+  button = createButton("click to randomize");
+  button.mousePressed(buttonPressed);
+  button.class("randomizerButton");
 
 
 }
 
 
 function draw() {
-  if (animating === false && frameCount % 14 === 0) {
-
+  if (animating === true) {
     clear();
     image(kicks[imageCounter], width / 2, height / 2);
-    imageCounter++;
-
     if (imageCounter < kicks.length - 1) {
       imageCounter++;
+      console.log(imageCounter);
     } else {
-
       imageCounter = 0;
-
     }
-
-
-
-  // //   col.r = random(100, 255);
-  // //   col.g = 0;
-  // //   col.b = random(100, 190);
-  // //   point.x = random(0, width);
-  // //   point.y = random(0, height);
-  // //   fill(col.r, col.g, col.b, 25)
-  // //   ellipse(random(width), random(height), random(64, 64));
-  // //
-  // // }
-  //
-  // {
-    let d = random(0, 255);
-    let e = random(0, 255);
-    let f = random(0, 255);
-    fill(d, e, f);
-    noStroke();
-    rect(mouseX, mouseY, -2, 70);
-    ellipse(mouseX, mouseY, 40, 7);
+    fill(random(255), random(255), random(255), random(255));
+    rect(random(width), random(height), random(20), random(200), random(70));
+    fill(random(255), random(255), random(255), random(255));
+    rect(random(width), random(height), random(200), random(50), random(70));
   }
 }
 
 
+
+
 function randomizer() {
   animating = false;
-  let a = random(150, 255);
-  let b = random(150, 255);
-  let c = random(150, 255);
-  background(a, b, c);
-  randomIndex = int(random(col.length));
-  image(random(kicks), width / 2, height / 2);
-  imageCounter++;
-
+  if (dogs[0]) {
+    // background(random(255), random(255), random(255));
+    clear();
+    randomIndex = int(random(dogs.length));
+    // fill('white');
+    image(random(kicks), width / 2, height / 2);
+    dogs.splice(randomIndex, 1);
+    text(dogs[randomIndex].name + "'s favorite color is " + dogs[randomIndex].color, width / 2, height / 2);
+  } else {
+    background(random(255), random(255), random(255));
+    fill('white');
+    text("nothing is left!", 170, 300);
+  }
 }
 
-
-
 function buttonPressed() {
-  animating = false;
-  randomizer();
-  setTimeout(randomizer, 20000);
+  animating = true;
+  setTimeout(randomizer, 1000);
+}
 
+function mouseMoved() {
+  stroke(random(255), random(255), random(255), random(255));
+  strokeWeight(random(20));
+  point(mouseX, mouseY);
+  // strokeWeight(0);
 }
