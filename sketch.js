@@ -7,22 +7,59 @@ let col = {
 }
 let randomIndex;
 let animating = true;
+let kicks = [];
+let imageCounter = 0;
+let button;
+
+function preload() {
+
+  for (let i = 0; i <= 15; i++) {
+    kicks[i] = loadImage(`assets/kicks_${i}.JPG`)
+
+
+  }
+
+
+
+}
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(600, 600);
   background(147, 112, 219);
+  imageMode(CENTER);
+  frameRate(160);
+button = createButton ("click to randomize");
+button.mousePressed(buttonPressed);
+button.class("randomizerButton");
+
+
 }
 
 
 function draw() {
   if (animating === false && frameCount % 14 === 0) {
-    col.r = random(100, 255);
-    col.g = 0;
-    col.b = random(100, 190);
-    point.x = random(0, width);
-    point.y = random(0, height);
-    fill(col.r, col.g, col.b, 25)
-    ellipse(random(width), random(height), random(64, 64));
+
+    clear();
+    image(kicks[imageCounter], width / 2, height / 2);
+    imageCounter++;
+
+    if (imageCounter < kicks.length - 1) {
+      imageCounter++;
+    } else {
+
+      imageCounter = 0;
+
+    }
+
+
+
+    // col.r = random(100, 255);
+    // col.g = 0;
+    // col.b = random(100, 190);
+    // point.x = random(0, width);
+    // point.y = random(0, height);
+    // fill(col.r, col.g, col.b, 25)
+    // ellipse(random(width), random(height), random(64, 64));
 
   }
 
@@ -45,15 +82,16 @@ function randomizer() {
   let c = random(150, 255);
   background(a, b, c);
   randomIndex = int(random(col.length));
+  image(random(kicks), width / 2, height / 2);
+  imageCounter++;
 
 }
 
 
 
-function mousePressed() {
+function buttonPressed() {
   animating = false;
   randomizer();
   setTimeout(randomizer, 20000);
-
 
 }

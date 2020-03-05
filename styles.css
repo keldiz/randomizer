@@ -7,10 +7,10 @@ canvas {
   display: block;
 }
 
-h1, p {
-  color: #6289ff;
-}
 
-canvas {
-  padding: 100px;
+.randomizerButton {
+
+  padding: 20px;
+background-color:#28b08a;
+
 }
