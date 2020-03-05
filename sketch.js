@@ -11,6 +11,7 @@ let kicks = [];
 let imageCounter = 0;
 let button;
 
+
 function preload() {
 
   for (let i = 0; i <= 15; i++) {
@@ -27,8 +28,9 @@ function setup() {
   createCanvas(600, 600);
   background(147, 112, 219);
   imageMode(CENTER);
-  frameRate(160);
-button = createButton ("click to randomize");
+  frameRate(100);
+// button = createButton("click to randomize");
+button = select('#randButton');
 button.mousePressed(buttonPressed);
 button.class("randomizerButton");
 
@@ -53,17 +55,17 @@ function draw() {
 
 
 
-    // col.r = random(100, 255);
-    // col.g = 0;
-    // col.b = random(100, 190);
-    // point.x = random(0, width);
-    // point.y = random(0, height);
-    // fill(col.r, col.g, col.b, 25)
-    // ellipse(random(width), random(height), random(64, 64));
-
-  }
-
-  {
+  // //   col.r = random(100, 255);
+  // //   col.g = 0;
+  // //   col.b = random(100, 190);
+  // //   point.x = random(0, width);
+  // //   point.y = random(0, height);
+  // //   fill(col.r, col.g, col.b, 25)
+  // //   ellipse(random(width), random(height), random(64, 64));
+  // //
+  // // }
+  //
+  // {
     let d = random(0, 255);
     let e = random(0, 255);
     let f = random(0, 255);
