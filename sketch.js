@@ -85,7 +85,7 @@ function randomizer() {
     noStroke();
     text(dogs[randomIndex].name + "'s fave kicks " + dogs[randomIndex].color, width / 2, height / 2);
   } else {
-    background(random(255), random(255), random(255));
+    // background(random(255), random(255), random(255));
     nostroke();
     fill('white');
     text("Done!", 170, 300);
