@@ -28,7 +28,7 @@ let cnv;
 
 
 function preload() {
-  for (let i = 0; i <= 15; i++){
+  for (let i = 0; i <= 15; i++) {
     kicks[i] = loadImage(`assets/kicks_${i}.jpg`)
   }
 }
