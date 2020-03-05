@@ -1,21 +1,21 @@
 let dogs = [{
-  name: "dillion",
-  color: "red"
+  name: "Shabam",
+  color: " "
 }, {
-  name: "ziggy",
-  color: "blue"
+  name: "Nike",
+  color: " "
 }, {
-  name: "mercedes",
-  color: "green"
+  name: "Off-White",
+  color: " "
 }, {
-  name: "jorge",
-  color: "yellow"
+  name: " ",
+  color: " "
 }, {
-  name: "zay",
-  color: "black"
+  name: "Sheep",
+  color: " "
 }, {
-  name: "jay",
-  color: "white"
+  name: "MJ",
+  color: " "
 }];
 
 
@@ -40,10 +40,10 @@ function setup() {
 
 
   background(random(255), random(255), random(255), );
-  textSize(35);
-  text("CLICK TO RANDOMIZE", 100, 300);
+  // textSize(35);
+  // text("CLICK TO RANDOMIZE", 100, 300);
   imageMode(CENTER);
-  frameRate(100);
+  frameRate(8);
   // button = createButton("click to randomize");
   button = createButton("click to randomize");
   button.mousePressed(buttonPressed);
@@ -64,9 +64,9 @@ function draw() {
       imageCounter = 0;
     }
     fill(random(255), random(255), random(255), random(255));
-    rect(random(width), random(height), random(20), random(200), random(70));
+    ellipse(random(width), random(height), random(20), random(200), random(170));
     fill(random(255), random(255), random(255), random(255));
-    rect(random(width), random(height), random(200), random(50), random(70));
+    ellipse(random(width), random(height), random(200), random(50), random(170));
   }
 }
 
@@ -82,9 +82,11 @@ function randomizer() {
     // fill('white');
     image(random(kicks), width / 2, height / 2);
     dogs.splice(randomIndex, 1);
-    text(dogs[randomIndex].name + "'s favorite color is " + dogs[randomIndex].color, width / 2, height / 2);
+    noStroke();
+    text(dogs[randomIndex].name + "'s fave kicks " + dogs[randomIndex].color, width / 2, height / 2);
   } else {
     background(random(255), random(255), random(255));
+    nostroke();
     fill('white');
     text("nothing is left!", 170, 300);
   }
@@ -95,9 +97,9 @@ function buttonPressed() {
   setTimeout(randomizer, 1000);
 }
 
-function mouseMoved() {
-  stroke(random(255), random(255), random(255), random(255));
-  strokeWeight(random(20));
-  point(mouseX, mouseY);
-  // strokeWeight(0);
-}
+// function mouseMoved() {
+//   stroke(random(255), random(255), random(255), random(255));
+//   strokeWeight(random(10));
+//   point(mouseX, mouseY);
+//   // strokeWeight(0);
+// }
