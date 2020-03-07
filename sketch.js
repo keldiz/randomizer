@@ -1,30 +1,16 @@
-let dogs = [{
-  name: "Shabam",
-  color: " "
-}, {
-  name: "Nike",
-  color: " "
-}, {
-  name: "Off-White",
-  color: " "
-}, {
-  name: " ",
-  color: " "
-}, {
-  name: "Sheep",
-  color: " "
-}, {
-  name: "MJ",
-  color: " "
-}];
+let dogs = [];
 
 
 let randomIndex;
 let animating = false;
 let kicks = [];
 let imageCounter = 0;
-let button;
+let startRandomizerButton;
+let addMoreButton;
 let cnv;
+let nameInputs = [];
+let firstTime = true;
+
 
 
 function preload() {
@@ -40,16 +26,26 @@ function setup() {
 
 
   background(random(255), random(255), random(255), );
-  // textSize(35);
-  // text("CLICK TO RANDOMIZE", 100, 300);
+  textSize(24);
+  textFont('Courier new');
+  textAlign(CENTER);
+  textStyle(BOLD);
+  fill(255);
   imageMode(CENTER);
   frameRate(8);
-  // button = createButton("click to randomize");
-  button = createButton("click to randomize");
-  button.mousePressed(buttonPressed);
-  button.class("randomizerButton");
+
+  startRandomizerButton = select('#randButton');
+  startRandomizerButton.mousePressed(buttonPressed);
+
+  addMoreButton = select('#addMoreButton');
+  addMoreButton.mousePressed(addAnotherInput);
 
 
+
+  for (let i = 0; i < 3; i++) {
+    nameInputs.push(createInput());
+    nameInputs[nameInputs.length - 1].parent("#inputFields");
+  }
 }
 
 
@@ -70,33 +66,48 @@ function draw() {
   }
 }
 
+function addAnotherInput() {
+  nameInputs.push(createInput());
+  nameInputs[nameInputs.length - 1].parent("#inputFields");
 
+
+}
 
 
 function randomizer() {
   animating = false;
   if (dogs[0]) {
-    // background(random(255), random(255), random(255));
     clear();
     randomIndex = int(random(dogs.length));
-    // fill('white');
+
     image(random(kicks), width / 2, height / 2);
+    text(dogs[randomIndex], width / 2, height - 24);
     dogs.splice(randomIndex, 1);
-    noStroke();
-    textSize(24)
-    text(dogs[randomIndex].name + " 's fave kicks " + dogs[randomIndex].color, width / 2, height / 2);
   } else {
-    // background(random(255), random(255), random(255));
     nostroke();
-    fill('white');
-    text("Done!", 170, 300);
+    background(116, 52, 235);
+    text("Done!", width / 2, height / 2);
   }
 }
 
 function buttonPressed() {
+
+  if (firstTime) {
+    for (let i = 0; i < nameInputs.length; i++) {
+      dogs.push(nameInputs[i].value());
+    }
+    firstTime = false;
+  }
+
   animating = true;
   setTimeout(randomizer, 1000);
 }
+
+
+
+
+
+
 
 // function mouseMoved() {
 //   stroke(random(255), random(255), random(255), random(255));
